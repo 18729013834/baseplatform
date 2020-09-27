@@ -1,0 +1,173 @@
+﻿<!--add customized code between this region-->
+<!--add customized code between this region-->
+@model base_platform.Web.Models.basesrc.sys_resourceModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout  = "~/Views/Shared/_Layout.cshtml";
+<!--add customized code between this region-->
+<!--add customized code between this region-->
+}
+
+<div class="m_title_box">
+    <ol>
+        <li data-id="basesrc">
+            <a href="#">basesrc</a><i class="icon-arrowright"></i>
+        </li>
+        <li data-id="sys_resource">
+            <a href="#">sys_resource</a><i class="icon-arrowright"></i>
+        </li>
+        <li data-id="Details">Details</li>
+    </ol>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >name</label>
+						<div class="col-md-8 from-cont">
+							@Html.DisplayFor(model => model.Name)
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >Description</label>
+						<div class="col-md-8 from-cont">
+							@Html.DisplayFor(model => model.Description)
+						</div>
+					</div>
+				</div>
+			</div><div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >create_time</label>
+						<div class="col-md-8 from-cont">
+							@(this.Model.create_time == DateTime.MinValue ? String.Empty : this.Model.create_time.ToShortDateString())
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >tree_level</label>
+						<div class="col-md-8 from-cont">
+							@Html.DisplayFor(model => model.tree_level)
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >update_user</label>
+						<div class="col-md-8 from-cont">
+							@Html.DisplayFor(model => model.update_user)
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >deleted</label>
+						<div class="col-md-8 from-cont">
+							@Html.DisplayFor(model => model.deleted)
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >is_show</label>
+						<div class="col-md-8 from-cont">
+							@Html.DisplayFor(model => model.is_show)
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >parent_id</label>
+						<div class="col-md-8 from-cont">
+							@Html.DisplayFor(model => model.parent_id)
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >sort</label>
+						<div class="col-md-8 from-cont">
+							@Html.DisplayFor(model => model.sort)
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >type</label>
+						<div class="col-md-8 from-cont">
+							@Html.DisplayFor(model => model.type)
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >create_user</label>
+						<div class="col-md-8 from-cont">
+							@Html.DisplayFor(model => model.create_user)
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >update_time</label>
+						<div class="col-md-8 from-cont">
+							@(this.Model.update_time == DateTime.MinValue ? String.Empty : this.Model.update_time.ToShortDateString())
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >remark</label>
+						<div class="col-md-8 from-cont">
+							@Html.DisplayFor(model => model.remark)
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >btn_type</label>
+						<div class="col-md-8 from-cont">
+							@Html.DisplayFor(model => model.btn_type)
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >icon_class</label>
+						<div class="col-md-8 from-cont">
+							@Html.DisplayFor(model => model.icon_class)
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="col-md-4 from-title" >url</label>
+						<div class="col-md-8 from-cont">
+							@Html.DisplayFor(model => model.url)
+						</div>
+					</div>
+				</div>
+			</div>
+    </div>
+    <div class="width_100 text-center m_left">
+        @Html.ActionLink("Back to List", "Index",null,new { @class="m_btn m_back"})
+    </div>
+
+</div>

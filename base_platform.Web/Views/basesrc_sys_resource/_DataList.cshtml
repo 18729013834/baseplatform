@@ -1,0 +1,104 @@
+﻿@using MetaShare.Common.Core.Presentation
+@using base_platform.Entities
+@using base_platform.Web.HtmlExtensions
+@using base_platform.Entities.basesrc
+@using base_platform.Web.Models
+<!--add customized code between this region-->
+<!--add customized code between this region-->
+
+@model IndexViewModel<sys_resource>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+		<th class="text-left">name</th>
+		<th class="text-right">create_time</th>
+		<th class="text-right">tree_level</th>
+		<th class="text-left">update_user</th>
+		<th class="text-center">deleted</th>
+		<th class="text-center">is_show</th>
+		<th class="text-right">parent_id</th>
+		<th class="text-right">sort</th>
+		<th class="text-left">type</th>
+		<th class="text-left">create_user</th>
+		<th class="text-right">update_time</th>
+		<th class="text-left">remark</th>
+		<th class="text-right">btn_type</th>
+		<th class="text-left">icon_class</th>
+		<th class="text-left">url</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (Model.TargetPager != null && Model.TargetPager.Datas != null)
+            {
+            foreach (base_platform.Entities.basesrc.sys_resource sys_resourceItem in Model.TargetPager.Datas)
+                        {
+                <tr>
+			<td  class="text-left">
+				@Html.DisplayFor(modelItem => sys_resourceItem.Name)
+			</td>
+			<td class="text-right">
+				@(sys_resourceItem.create_time == DateTime.MinValue ? String.Empty : sys_resourceItem.create_time.ToShortDateString())
+			</td>
+			<td class="text-right">
+				@Html.DisplayFor(modelItem => sys_resourceItem.tree_level)
+			</td>
+			<td class="text-left">
+				@Html.DisplayFor(modelItem => sys_resourceItem.update_user)
+			</td>
+			<td class="text-center">
+				@Html.DisplayFor(modelItem => sys_resourceItem.deleted)
+			</td>
+			<td class="text-center">
+				@Html.DisplayFor(modelItem => sys_resourceItem.is_show)
+			</td>
+			<td class="text-right">
+				@Html.DisplayFor(modelItem => sys_resourceItem.parent_id)
+			</td>
+			<td class="text-right">
+				@Html.DisplayFor(modelItem => sys_resourceItem.sort)
+			</td>
+			<td class="text-left">
+				@Html.DisplayFor(modelItem => sys_resourceItem.type)
+			</td>
+			<td class="text-left">
+				@Html.DisplayFor(modelItem => sys_resourceItem.create_user)
+			</td>
+			<td class="text-right">
+				@(sys_resourceItem.update_time == DateTime.MinValue ? String.Empty : sys_resourceItem.update_time.ToShortDateString())
+			</td>
+			<td class="text-left">
+				@Html.DisplayFor(modelItem => sys_resourceItem.remark)
+			</td>
+			<td class="text-right">
+				@Html.DisplayFor(modelItem => sys_resourceItem.btn_type)
+			</td>
+			<td class="text-left">
+				@Html.DisplayFor(modelItem => sys_resourceItem.icon_class)
+			</td>
+			<td class="text-left">
+				@Html.DisplayFor(modelItem => sys_resourceItem.url)
+			</td>
+                    <td>
+                        @Html.ActionLink(" ", "Details", new { id = sys_resourceItem.Id, Controller = "sys_resource", area = "basesrc"}, new {@class="m_details", title="Details" })
+                        @Html.ActionLink(" ", "Edit", new { id = sys_resourceItem.Id, Controller = "sys_resource", area = "basesrc"}, new {@class="m_edit", title="Edit" })
+                        @Html.ActionLink(" ", "#", "#", new {href = "javascript:void(0);",@class="m_delete", title="Delete", onclick = " javascript:metaShare.basic.prototype.deleteTableColumn(this,'" + sys_resourceItem.Id + "','" + Url.Action("Delete",new {Controller = "sys_resource", area = "basesrc"}) + "'); return false; "})
+                    </td>
+                </tr>
+            }
+            }
+<!--add customized code between this region-->
+<!--add customized code between this region-->
+            </tbody>
+        </table>
+
+
+        <div class="UserPagerDiv text-center">
+    @{
+        object conditions = new
+        {
+            Name = Model.SearchModel != null ? Model.SearchModel.Name : "",
+        };
+    }
+        @Ajax.AjaxRenderPager(Model.TargetPager, "Search", "sys_resource","sys_resource_DataList", conditions)
+        </div>

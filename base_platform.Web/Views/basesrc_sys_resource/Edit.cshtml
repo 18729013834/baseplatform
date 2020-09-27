@@ -1,0 +1,209 @@
+﻿@using base_platform.Web.HtmlExtensions
+<!--add customized code between this region-->
+<!--add customized code between this region-->
+@model base_platform.Web.Models.basesrc.sys_resourceModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout  = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="m_title_box">
+    <ol>
+        <li data-id="basesrc">
+            <a href="#">basesrc</a><i class="icon-arrowright"></i>
+        </li>
+        <li data-id="sys_resource">
+            <a href="#">sys_resource</a><i class="icon-arrowright"></i>
+        </li>
+        <li data-id="Edit">Edit</li>
+    </ol>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.OwnerId)
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="Name"  class="col-md-4 from-title" >name</label>
+						<div class="col-md-8 from-cont">
+							@Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.Name)
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="Description"  class="col-md-4 from-title" >Description</label>
+						<div class="col-md-8 from-cont">
+							@Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.Description)
+						</div>
+					</div>
+				</div>
+			</div><div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="create_time"  class="col-md-4 from-title" >create_time</label>
+						<div class="col-md-8 from-cont">
+							@Html.TextBoxFor(model => model.create_time , "{0:yyyy-MM-dd}" , new { @class = "form-control", @readonly = "readonly" })
+							@Html.ValidationMessageFor(model => model.create_time)
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="tree_level"  class="col-md-4 from-title" >tree_level</label>
+						<div class="col-md-8 from-cont">
+							@Html.TextBoxFor(model => model.tree_level, new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.tree_level)
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="update_user"  class="col-md-4 from-title" >update_user</label>
+						<div class="col-md-8 from-cont">
+							@Html.TextBoxFor(model => model.update_user, new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.update_user)
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="deleted"  class="col-md-4 from-title" >deleted</label>
+						<div class="col-md-8 from-cont">
+							@Html.EditorFor(model => model.deleted, new { @class = "form-control" } )
+							@Html.ValidationMessageFor(model => model.deleted)
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="is_show"  class="col-md-4 from-title" >is_show</label>
+						<div class="col-md-8 from-cont">
+							@Html.EditorFor(model => model.is_show, new { @class = "form-control" } )
+							@Html.ValidationMessageFor(model => model.is_show)
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="parent_id"  class="col-md-4 from-title" >parent_id</label>
+						<div class="col-md-8 from-cont">
+							@Html.TextBoxFor(model => model.parent_id, new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.parent_id)
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="sort"  class="col-md-4 from-title" >sort</label>
+						<div class="col-md-8 from-cont">
+							@Html.TextBoxFor(model => model.sort, new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.sort)
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="type"  class="col-md-4 from-title" >type</label>
+						<div class="col-md-8 from-cont">
+							@Html.TextBoxFor(model => model.type, new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.type)
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="create_user"  class="col-md-4 from-title" >create_user</label>
+						<div class="col-md-8 from-cont">
+							@Html.TextBoxFor(model => model.create_user, new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.create_user)
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="update_time"  class="col-md-4 from-title" >update_time</label>
+						<div class="col-md-8 from-cont">
+							@Html.TextBoxFor(model => model.update_time , "{0:yyyy-MM-dd}" , new { @class = "form-control", @readonly = "readonly" })
+							@Html.ValidationMessageFor(model => model.update_time)
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="remark"  class="col-md-4 from-title" >remark</label>
+						<div class="col-md-8 from-cont">
+							@Html.TextBoxFor(model => model.remark, new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.remark)
+						</div>
+					</div>
+				</div>
+				@Html.HiddenFor(model => model.id)
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="btn_type"  class="col-md-4 from-title" >btn_type</label>
+						<div class="col-md-8 from-cont">
+							@Html.TextBoxFor(model => model.btn_type, new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.btn_type)
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="icon_class"  class="col-md-4 from-title" >icon_class</label>
+						<div class="col-md-8 from-cont">
+							@Html.TextBoxFor(model => model.icon_class, new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.icon_class)
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="url"  class="col-md-4 from-title" >url</label>
+						<div class="col-md-8 from-cont">
+							@Html.TextBoxFor(model => model.url, new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.url)
+						</div>
+					</div>
+				</div>
+			</div>
+            <div class="width_10 text-center m_left">
+                <input class="m_btn m_back" type="submit" value="Save" />
+                @Html.ActionLink("Cancel", "Index", null, new {@class="m_btn m_back"})
+            </div>
+        }
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document)
+            .ready(function() {
+				metaShare.DateFormat.format($("#create_time"), "@Model.create_time");
+				metaShare.DateFormat.format($("#update_time"), "@Model.update_time");
+/*add customized code between this region*/
+/*add customized code between this region*/
+        });
+    </script>
+}
+
